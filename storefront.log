@@ -1,0 +1,99 @@
+Watching for file changes with StatReloader
+Cannot execute silk_profile as silk is not installed correctly.
+C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\playground\views.py changed, reloading.
+Watching for file changes with StatReloader
+Cannot execute silk_profile as silk is not installed correctly.
+C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\playground\views.py changed, reloading.
+Watching for file changes with StatReloader
+Cannot execute silk_profile as silk is not installed correctly.
+C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\playground\views.py changed, reloading.
+Watching for file changes with StatReloader
+Cannot execute silk_profile as silk is not installed correctly.
+Fetching data from https://httpbin.org/delay/2
+Starting new HTTPS connection (1): httpbin.org:443
+https://httpbin.org:443 "GET /delay/2 HTTP/1.1" 200 367
+Data fetched successfully
+Internal Server Error: /playground/hello/
+Traceback (most recent call last):
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\playground\views.py", line 27, in get
+    return render(requests.request, 'hello.html', {'name': data})
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\base.py", line 172, in render
+    with context.bind_template(self):
+         ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Python314\Lib\contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\debug_toolbar\panels\templates\panel.py", line 51, in _request_context_bind_template
+    context = processor(self.request)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\context_processors.py", line 42, in debug
+    if settings.DEBUG and request.META.get("REMOTE_ADDR") in settings.INTERNAL_IPS:
+                          ^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'META'
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\playground\views.py changed, reloading.
+Watching for file changes with StatReloader
+Cannot execute silk_profile as silk is not installed correctly.
+Fetching data from https://httpbin.org/delay/2
+Starting new HTTPS connection (1): httpbin.org:443
+https://httpbin.org:443 "GET /delay/2 HTTP/1.1" 200 367
+Data fetched successfully
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\storefront\settings.py changed, reloading.
+INFO 2025-12-06 18:45:35,964 autoreload Watching for file changes with StatReloader
+WARNING 2025-12-06 18:45:37,733 profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-06 18:46:09,317 log Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-06 18:51:27,004 autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\storefront\settings.py changed, reloading.
+INFO 2025-12-06 18:51:29,622 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-06 18:51:31,666 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+DEBUG 2025-12-06 18:51:33,524 views playground.views Fetching data from https://httpbin.org/delay/2
+DEBUG 2025-12-06 18:51:33,561 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): httpbin.org:443
+DEBUG 2025-12-06 18:51:36,803 connectionpool urllib3.connectionpool https://httpbin.org:443 "GET /delay/2 HTTP/1.1" 200 367
+DEBUG 2025-12-06 18:51:36,805 views playground.views Data fetched successfully
+WARNING 2025-12-06 18:51:37,028 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-06 19:13:48,600 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\storefront\wsgi.py changed, reloading.
+INFO 2025-12-06 19:15:42,301 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-06 19:15:43,245 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+DEBUG 2025-12-06 19:16:25,827 views playground.views Fetching data from https://httpbin.org/delay/2
+DEBUG 2025-12-06 19:16:25,832 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): httpbin.org:443
+DEBUG 2025-12-06 19:16:53,964 connectionpool urllib3.connectionpool https://httpbin.org:443 "GET /delay/2 HTTP/1.1" 200 367
+DEBUG 2025-12-06 19:16:53,964 views playground.views Data fetched successfully
+WARNING 2025-12-06 19:18:16,165 log django.request Forbidden: /store/collections/
+WARNING 2025-12-06 19:18:16,188 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-06 19:18:16,202 log django.request Bad Request: /store/collections/
+INFO 2025-12-06 19:20:03,681 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\storefront\settings\common.py changed, reloading.
+INFO 2025-12-06 19:20:05,001 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-06 19:20:05,745 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-06 19:21:23,457 log django.request Forbidden: /store/collections/
+WARNING 2025-12-06 19:21:23,500 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-06 19:21:23,595 log django.request Bad Request: /store/collections/

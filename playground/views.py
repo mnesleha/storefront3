@@ -13,18 +13,30 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-# cache na class based view, logging
 class HelloView(APIView):
-    @method_decorator(cache_page(5 * 60))
+    def send_simple_message(self, request):
+        response = requests.post(
+            "https://api.mailgun.net/v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages",
+            auth=("api", os.getenv('API_KEY', 'API_KEY')),
+            data={"from": "Mailgun Sandbox <postmaster@sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org>",
+                  "to": "Heroku <812cd309-fa07-474d-8481-cd8523341f6a@heroku.com>",
+                  "subject": "Hello Heroku",
+                  "text": "Congratulations Heroku, you just sent an email with Mailgun! You are truly awesome!"})
+
     def get(self, request):
-        try:
-            logger.debug("Fetching data from https://httpbin.org/delay/2")
-            response = requests.get('https://httpbin.org/delay/2')
-            logger.debug("Data fetched successfully")
-            data = response.json()
-        except requests.ConnectionError:
-            logger.critical("Failed to connect to external service")
-        return render(request, 'hello.html', {'name': data})
+        return render(request, 'hello.html', {'name': self.send_simple_message(request)})
+
+    # cache na class based view, logging
+    # @method_decorator(cache_page(5 * 60))
+    # def get(self, request):
+    #     try:
+    #         logger.debug("Fetching data from https://httpbin.org/delay/2")
+    #         response = requests.get('https://httpbin.org/delay/2')
+    #         logger.debug("Data fetched successfully")
+    #         data = response.json()
+    #     except requests.ConnectionError:
+    #         logger.critical("Failed to connect to external service")
+    #     return render(request, 'hello.html', {'name': data})
 
 
 # cache na API view

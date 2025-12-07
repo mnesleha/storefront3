@@ -27,3 +27,9 @@ CACHES = {
         }
     }
 }
+
+EMAIL_HOST = os.environ['MAILGUN_SMTP_SERVER']
+EMAIL_HOST_USER = os.environ['MAILGUN_SMTP_LOGIN']
+EMAIL_HOST_PASSWORD = os.environ['MAILGUN_SMTP_PASSWORD']
+EMAIL_PORT = os.environ['MAILGUN_SMTP_PORT']
+DEFAULT_FROM_EMAIL = 'webmaster@prodhost'

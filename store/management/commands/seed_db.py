@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.db import connection
+from django_mysql.utils import execute_files
 from pathlib import Path
 import os
 
@@ -14,4 +15,7 @@ class Command(BaseCommand):
         sql = Path(file_path).read_text()
 
         with connection.cursor() as cursor:
-            cursor.execute(sql)
+            #            cursor.execute(sql)
+            execute_files(cursor, [file_path])
+
+        print('Database populated successfully.')

@@ -21,6 +21,7 @@ dj-database-url = "*"
 django-silk = "*"
 django-redis = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 autopep8 = "*"

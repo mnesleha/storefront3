@@ -171,6 +171,13 @@ ADMINS = [
 ]
 
 # CELERY_BROKER_URL = 'redis://localhost:6379/0'
+# CELERY_BEAT_SCHEDULE = {
+#     'notify_customers': {
+#         'task': 'playground.tasks.notify_customers',
+#         'schedule': 5,  # every 5 seconds for testing purposes
+#         'args': ['Hello from Celery!'],
+#     },
+# }
 
 CACHES = {
     "default": {

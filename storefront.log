@@ -108,3 +108,5 @@ INFO 2025-12-07 11:00:52,755 wasyncore waitress Serving on http://[::]:8000
 INFO 2025-12-07 11:00:52,756 wasyncore waitress Serving on http://0.0.0.0:8000
 WARNING 2025-12-07 11:01:21,741 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
 WARNING 2025-12-07 11:01:22,266 log django.request Not Found: /favicon.ico
+WARNING 2025-12-07 12:35:41,713 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-07 12:36:46,899 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.

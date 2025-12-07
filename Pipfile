@@ -17,6 +17,7 @@ django-templated-mail = "*"
 redis = "*"
 pillow = "*"
 celery = "*"
+dj-database-url = "*"
 
 [dev-packages]
 autopep8 = "*"

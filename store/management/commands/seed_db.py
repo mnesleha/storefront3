@@ -3,6 +3,7 @@ from django.db import connection
 from django_mysql.utils import execute_files
 from pathlib import Path
 import os
+from store.utils import execute_sql_script
 
 
 class Command(BaseCommand):
@@ -16,6 +17,6 @@ class Command(BaseCommand):
 
         with connection.cursor() as cursor:
             #            cursor.execute(sql)
-            execute_files(cursor, [file_path])
+            execute_sql_script(cursor, sql)
 
         print('Database populated successfully.')

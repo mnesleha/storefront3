@@ -18,6 +18,7 @@ redis = "*"
 pillow = "*"
 celery = "*"
 dj-database-url = "*"
+django-silk = "*"
 
 [dev-packages]
 autopep8 = "*"

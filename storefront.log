@@ -110,3 +110,361 @@ WARNING 2025-12-07 11:01:21,741 profiler silk.profiling.profiler Cannot execute 
 WARNING 2025-12-07 11:01:22,266 log django.request Not Found: /favicon.ico
 WARNING 2025-12-07 12:35:41,713 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
 WARNING 2025-12-07 12:36:46,899 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-12 18:53:00,670 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-12 18:53:03,219 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-12 18:53:21,937 log django.request Not Found: /favicon.ico
+WARNING 2025-12-12 19:09:56,107 log django.request Bad Request: /auth/users/
+WARNING 2025-12-12 19:09:56,168 log django.request Bad Request: /auth/users/
+WARNING 2025-12-12 19:09:56,221 log django.request Bad Request: /auth/users/
+WARNING 2025-12-12 19:09:56,325 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-12 19:09:59,180 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-12 19:10:00,032 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-12 19:10:00,156 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-12 19:10:00,942 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-12 19:10:01,006 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-12 19:10:01,754 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-12 19:10:01,792 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-12 19:10:02,580 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-12 19:10:02,729 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-12 19:10:03,311 log django.request Bad Request: /store/carts/b69319a7-4f71-4786-9921-2ae2027f33a3/items/
+WARNING 2025-12-12 19:10:03,499 log django.request Forbidden: /store/collections/
+WARNING 2025-12-12 19:10:03,542 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-12 19:10:03,583 log django.request Bad Request: /store/collections/
+WARNING 2025-12-12 19:10:03,707 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-12 19:10:03,747 log django.request Forbidden: /store/customers/
+WARNING 2025-12-12 19:10:04,800 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-12 19:10:08,325 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-12 19:10:08,368 log django.request Bad Request: /store/orders/
+WARNING 2025-12-12 19:10:09,506 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-12 19:10:10,934 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-12 19:10:11,520 log django.request Unauthorized: /store/products/
+WARNING 2025-12-12 19:10:11,563 log django.request Forbidden: /store/products/
+WARNING 2025-12-12 19:10:11,606 log django.request Bad Request: /store/products/
+WARNING 2025-12-12 19:10:11,750 log django.request Not Found: /store/products/999/
+WARNING 2025-12-12 19:10:11,798 log django.request Unauthorized: /store/products/31/
+WARNING 2025-12-12 19:10:11,941 log django.request Unauthorized: /store/products/34/
+WARNING 2025-12-12 19:10:11,992 log django.request Forbidden: /store/products/35/
+WARNING 2025-12-12 19:10:12,902 log django.request Bad Request: /store/products/42/reviews/
+WARNING 2025-12-13 09:29:10,168 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 09:29:10,224 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 09:29:10,269 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 09:29:10,354 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-13 09:29:13,688 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:29:14,907 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 09:29:15,276 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:29:16,442 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 09:29:16,499 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:29:17,569 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 09:29:17,604 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:29:18,695 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-13 09:29:18,840 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-13 09:29:19,514 log django.request Bad Request: /store/carts/69d710ea-1b47-4380-9d26-e41e0e7e2181/items/
+WARNING 2025-12-13 09:29:19,696 log django.request Forbidden: /store/collections/
+WARNING 2025-12-13 09:29:19,739 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-13 09:29:19,782 log django.request Bad Request: /store/collections/
+WARNING 2025-12-13 09:29:19,929 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-13 09:29:19,975 log django.request Forbidden: /store/customers/
+WARNING 2025-12-13 09:29:21,185 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-13 09:29:25,140 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 09:29:25,182 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 09:29:26,194 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-13 09:29:27,728 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 09:29:28,382 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 09:29:28,420 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 09:29:28,460 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 09:29:28,605 log django.request Not Found: /store/products/999/
+WARNING 2025-12-13 09:29:28,649 log django.request Unauthorized: /store/products/31/
+WARNING 2025-12-13 09:29:28,697 log django.request Forbidden: /store/products/32/
+WARNING 2025-12-13 09:29:28,823 log django.request Unauthorized: /store/products/34/
+WARNING 2025-12-13 09:29:28,867 log django.request Forbidden: /store/products/35/
+WARNING 2025-12-13 09:29:29,800 log django.request Bad Request: /store/products/42/reviews/
+WARNING 2025-12-13 09:44:44,479 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 09:44:44,543 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 09:44:44,605 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 09:44:44,732 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-13 09:44:47,573 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:44:48,697 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 09:44:48,831 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:44:49,926 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 09:44:50,013 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:44:51,053 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 09:44:51,112 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:44:52,177 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-13 09:44:52,315 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-13 09:44:52,438 log django.request Bad Request: /store/carts/b6763c08-6d2a-4d4c-b8ba-6e8aed52f5b5/items/
+WARNING 2025-12-13 09:44:52,611 log django.request Forbidden: /store/collections/
+WARNING 2025-12-13 09:44:52,650 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-13 09:44:52,688 log django.request Bad Request: /store/collections/
+WARNING 2025-12-13 09:44:52,811 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-13 09:44:52,848 log django.request Forbidden: /store/customers/
+WARNING 2025-12-13 09:44:54,120 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-13 09:44:57,440 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 09:44:57,482 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 09:44:58,455 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-13 09:44:59,857 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 09:45:00,482 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 09:45:00,525 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 09:45:00,573 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 09:45:00,727 log django.request Not Found: /store/products/999/
+WARNING 2025-12-13 09:45:00,767 log django.request Unauthorized: /store/products/31/
+WARNING 2025-12-13 09:45:00,812 log django.request Forbidden: /store/products/32/
+WARNING 2025-12-13 09:45:00,911 log django.request Unauthorized: /store/products/34/
+WARNING 2025-12-13 09:45:00,956 log django.request Forbidden: /store/products/35/
+WARNING 2025-12-13 09:45:01,768 log django.request Bad Request: /store/products/42/reviews/
+WARNING 2025-12-13 09:55:18,757 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 09:55:18,802 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 09:55:18,843 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 09:55:18,920 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-13 09:55:21,544 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:55:22,659 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 09:55:22,799 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:55:23,783 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 09:55:23,834 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:55:25,014 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 09:55:25,068 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 09:55:26,138 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-13 09:55:26,286 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-13 09:55:26,412 log django.request Bad Request: /store/carts/4d3b53db-9bcb-41bf-b008-4d85efac328e/items/
+WARNING 2025-12-13 09:55:26,587 log django.request Forbidden: /store/collections/
+WARNING 2025-12-13 09:55:26,627 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-13 09:55:26,681 log django.request Bad Request: /store/collections/
+WARNING 2025-12-13 09:55:26,790 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-13 09:55:26,823 log django.request Forbidden: /store/customers/
+WARNING 2025-12-13 09:55:28,208 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-13 09:55:31,626 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 09:55:31,666 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 09:55:32,582 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-13 09:55:33,967 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 09:55:34,588 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 09:55:34,632 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 09:55:34,683 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 09:55:34,827 log django.request Not Found: /store/products/999/
+WARNING 2025-12-13 09:55:34,871 log django.request Unauthorized: /store/products/31/
+WARNING 2025-12-13 09:55:34,918 log django.request Forbidden: /store/products/32/
+WARNING 2025-12-13 09:55:35,019 log django.request Unauthorized: /store/products/34/
+WARNING 2025-12-13 09:55:35,070 log django.request Forbidden: /store/products/35/
+WARNING 2025-12-13 09:55:35,932 log django.request Bad Request: /store/products/42/reviews/
+WARNING 2025-12-13 10:35:49,256 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:35:49,298 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:35:49,337 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:35:49,419 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-13 10:35:51,690 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:35:52,720 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:35:52,884 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:35:53,959 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:35:53,998 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:35:55,079 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:35:55,143 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:35:56,204 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-13 10:35:56,366 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-13 10:35:56,487 log django.request Bad Request: /store/carts/f76df48b-7f8c-4b95-8290-f52e56069f78/items/
+WARNING 2025-12-13 10:35:56,656 log django.request Forbidden: /store/collections/
+WARNING 2025-12-13 10:35:56,701 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-13 10:35:56,738 log django.request Bad Request: /store/collections/
+WARNING 2025-12-13 10:35:56,856 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-13 10:35:56,893 log django.request Forbidden: /store/customers/
+WARNING 2025-12-13 10:35:58,337 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-13 10:36:01,656 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:36:01,696 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 10:36:02,778 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-13 10:36:04,379 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:36:05,040 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 10:36:05,090 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 10:36:05,138 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 10:36:05,296 log django.request Not Found: /store/products/999/
+WARNING 2025-12-13 10:36:05,342 log django.request Unauthorized: /store/products/31/
+WARNING 2025-12-13 10:36:05,394 log django.request Forbidden: /store/products/32/
+WARNING 2025-12-13 10:36:05,498 log django.request Unauthorized: /store/products/34/
+WARNING 2025-12-13 10:36:05,546 log django.request Forbidden: /store/products/35/
+WARNING 2025-12-13 10:36:06,419 log django.request Bad Request: /store/products/42/reviews/
+WARNING 2025-12-13 10:41:18,767 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:41:18,803 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:41:18,838 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:41:18,911 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-13 10:41:21,173 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:41:21,987 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:41:22,113 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:41:22,876 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:41:22,936 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:41:23,704 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:41:23,743 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:41:24,518 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-13 10:41:24,641 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-13 10:41:24,762 log django.request Bad Request: /store/carts/8afd750d-704c-429d-ab83-73f343c25256/items/
+WARNING 2025-12-13 10:41:24,917 log django.request Forbidden: /store/collections/
+WARNING 2025-12-13 10:41:24,952 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-13 10:41:24,984 log django.request Bad Request: /store/collections/
+WARNING 2025-12-13 10:41:25,084 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-13 10:41:25,117 log django.request Forbidden: /store/customers/
+WARNING 2025-12-13 10:41:26,526 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-13 10:41:29,873 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:41:29,914 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 10:41:30,852 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-13 10:41:32,257 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:41:32,890 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 10:41:32,925 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 10:41:32,962 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 10:41:33,081 log django.request Not Found: /store/products/999/
+WARNING 2025-12-13 10:41:33,117 log django.request Unauthorized: /store/products/31/
+WARNING 2025-12-13 10:41:33,153 log django.request Forbidden: /store/products/32/
+WARNING 2025-12-13 10:41:33,257 log django.request Unauthorized: /store/products/34/
+WARNING 2025-12-13 10:41:33,294 log django.request Forbidden: /store/products/35/
+WARNING 2025-12-13 10:41:34,023 log django.request Bad Request: /store/products/42/reviews/
+WARNING 2025-12-13 10:43:19,120 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:43:19,155 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:43:19,222 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:43:19,290 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-13 10:43:21,956 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:43:23,183 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:43:23,337 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:43:24,511 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:43:24,572 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:43:25,740 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:43:25,800 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:43:26,866 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-13 10:43:27,010 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-13 10:43:27,150 log django.request Bad Request: /store/carts/266dc57f-185b-45dd-b9cc-1a5537ccc5eb/items/
+WARNING 2025-12-13 10:43:27,352 log django.request Forbidden: /store/collections/
+WARNING 2025-12-13 10:43:27,406 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-13 10:43:27,457 log django.request Bad Request: /store/collections/
+WARNING 2025-12-13 10:43:27,600 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-13 10:43:27,644 log django.request Forbidden: /store/customers/
+WARNING 2025-12-13 10:43:27,692 log django.request Unauthorized: /store/customers/1/
+WARNING 2025-12-13 10:43:27,795 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-13 10:43:28,186 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:43:28,232 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 10:43:28,282 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 10:43:29,008 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-13 10:43:29,087 log django.request Forbidden: /store/orders/6/
+WARNING 2025-12-13 10:43:29,165 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:43:29,379 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 10:43:29,413 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 10:43:29,446 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 10:43:29,553 log django.request Not Found: /store/products/999/
+WARNING 2025-12-13 10:43:29,585 log django.request Unauthorized: /store/products/33/
+WARNING 2025-12-13 10:43:29,643 log django.request Forbidden: /store/products/34/
+WARNING 2025-12-13 10:43:29,718 log django.request Unauthorized: /store/products/36/
+WARNING 2025-12-13 10:43:29,752 log django.request Forbidden: /store/products/37/
+WARNING 2025-12-13 10:43:29,791 log django.request Method Not Allowed: /store/products/38/
+WARNING 2025-12-13 10:43:30,072 log django.request Bad Request: /store/products/44/reviews/
+WARNING 2025-12-13 10:44:36,091 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:44:36,128 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:44:36,166 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:44:36,235 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-13 10:44:38,446 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:44:39,467 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:44:39,569 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:44:40,596 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:44:40,657 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:44:41,675 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:44:41,709 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:44:42,747 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-13 10:44:42,925 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-13 10:44:43,038 log django.request Bad Request: /store/carts/59d87f39-3d6d-4cf1-bfca-272f5c960b52/items/
+WARNING 2025-12-13 10:44:43,193 log django.request Forbidden: /store/collections/
+WARNING 2025-12-13 10:44:43,226 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-13 10:44:43,261 log django.request Bad Request: /store/collections/
+WARNING 2025-12-13 10:44:43,366 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-13 10:44:43,398 log django.request Forbidden: /store/customers/
+WARNING 2025-12-13 10:44:43,516 log django.request Unauthorized: /store/customers/21/
+WARNING 2025-12-13 10:44:43,602 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-13 10:44:43,930 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:44:43,965 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 10:44:44,004 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 10:44:44,093 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-13 10:44:44,164 log django.request Forbidden: /store/orders/17/
+WARNING 2025-12-13 10:44:44,237 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:44:44,423 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 10:44:44,464 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 10:44:44,497 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 10:44:44,601 log django.request Not Found: /store/products/999/
+WARNING 2025-12-13 10:44:44,634 log django.request Unauthorized: /store/products/94/
+WARNING 2025-12-13 10:44:44,671 log django.request Forbidden: /store/products/95/
+WARNING 2025-12-13 10:44:44,749 log django.request Unauthorized: /store/products/97/
+WARNING 2025-12-13 10:44:44,783 log django.request Forbidden: /store/products/98/
+WARNING 2025-12-13 10:44:44,821 log django.request Method Not Allowed: /store/products/99/
+WARNING 2025-12-13 10:44:45,004 log django.request Bad Request: /store/products/105/reviews/
+WARNING 2025-12-13 10:45:52,023 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:45:52,060 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:45:52,101 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 10:45:52,171 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-13 10:45:54,358 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:45:55,347 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:45:55,454 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:45:56,473 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:45:56,526 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:45:57,602 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 10:45:57,665 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 10:45:58,727 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-13 10:45:58,933 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-13 10:45:59,070 log django.request Bad Request: /store/carts/0b159f3a-2ad1-4c15-bef7-bd0a940ca472/items/
+WARNING 2025-12-13 10:45:59,234 log django.request Forbidden: /store/collections/
+WARNING 2025-12-13 10:45:59,273 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-13 10:45:59,310 log django.request Bad Request: /store/collections/
+WARNING 2025-12-13 10:45:59,436 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-13 10:45:59,471 log django.request Forbidden: /store/customers/
+WARNING 2025-12-13 10:45:59,511 log django.request Unauthorized: /store/customers/40/
+WARNING 2025-12-13 10:45:59,595 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-13 10:45:59,981 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:46:00,020 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 10:46:00,066 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 10:46:00,161 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-13 10:46:00,239 log django.request Forbidden: /store/orders/27/
+WARNING 2025-12-13 10:46:00,316 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 10:46:00,512 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 10:46:00,548 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 10:46:00,589 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 10:46:00,707 log django.request Not Found: /store/products/999/
+WARNING 2025-12-13 10:46:00,742 log django.request Unauthorized: /store/products/154/
+WARNING 2025-12-13 10:46:00,782 log django.request Forbidden: /store/products/155/
+WARNING 2025-12-13 10:46:00,863 log django.request Unauthorized: /store/products/157/
+WARNING 2025-12-13 10:46:00,900 log django.request Forbidden: /store/products/158/
+WARNING 2025-12-13 10:46:00,941 log django.request Method Not Allowed: /store/products/159/
+WARNING 2025-12-13 10:46:01,155 log django.request Bad Request: /store/products/165/reviews/
+WARNING 2025-12-13 12:47:15,087 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 12:47:15,141 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 12:47:15,198 log django.request Bad Request: /auth/users/
+WARNING 2025-12-13 12:47:15,297 log django.request Unauthorized: /auth/users/me/
+DEBUG 2025-12-13 12:47:18,537 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 12:47:19,516 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 12:47:19,695 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 12:47:20,546 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 12:47:20,597 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 12:47:21,454 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+DEBUG 2025-12-13 12:47:21,504 connectionpool urllib3.connectionpool Starting new HTTPS connection (1): api.mailgun.net:443
+DEBUG 2025-12-13 12:47:22,378 connectionpool urllib3.connectionpool https://api.mailgun.net:443 "POST /v3/sandbox36f38199cfaf4f75b345859e5239f699.mailgun.org/messages HTTP/1.1" 401 9
+WARNING 2025-12-13 12:47:22,549 log django.request Not Found: /store/carts/11111111-1111-1111-1111-111111111111/
+WARNING 2025-12-13 12:47:22,702 log django.request Bad Request: /store/carts/56b60c85-27ca-483e-a031-58aad984f6a7/items/
+WARNING 2025-12-13 12:47:22,927 log django.request Forbidden: /store/collections/
+WARNING 2025-12-13 12:47:22,987 log django.request Unauthorized: /store/collections/
+WARNING 2025-12-13 12:47:23,034 log django.request Bad Request: /store/collections/
+WARNING 2025-12-13 12:47:23,184 log django.request Unauthorized: /store/customers/
+WARNING 2025-12-13 12:47:23,233 log django.request Forbidden: /store/customers/
+WARNING 2025-12-13 12:47:23,311 log django.request Unauthorized: /store/customers/59/
+WARNING 2025-12-13 12:47:23,451 log django.request Unauthorized: /store/customers/me/
+WARNING 2025-12-13 12:47:24,095 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 12:47:24,164 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 12:47:24,223 log django.request Bad Request: /store/orders/
+WARNING 2025-12-13 12:47:24,369 log django.request Unauthorized: /store/orders/1/
+WARNING 2025-12-13 12:47:24,484 log django.request Forbidden: /store/orders/37/
+WARNING 2025-12-13 12:47:24,594 log django.request Unauthorized: /store/orders/
+WARNING 2025-12-13 12:47:24,930 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 12:47:25,005 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 12:47:25,061 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 12:47:25,244 log django.request Not Found: /store/products/999/
+WARNING 2025-12-13 12:47:25,295 log django.request Unauthorized: /store/products/214/
+WARNING 2025-12-13 12:47:25,347 log django.request Forbidden: /store/products/215/
+WARNING 2025-12-13 12:47:25,477 log django.request Unauthorized: /store/products/217/
+WARNING 2025-12-13 12:47:25,528 log django.request Forbidden: /store/products/218/
+WARNING 2025-12-13 12:47:25,587 log django.request Method Not Allowed: /store/products/219/
+WARNING 2025-12-13 12:47:25,912 log django.request Bad Request: /store/products/225/reviews/
+WARNING 2025-12-13 14:19:51,424 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 14:19:51,498 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 14:19:51,534 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 14:22:42,779 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 14:22:42,823 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 14:22:42,863 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 14:24:53,877 log django.request Unauthorized: /store/products/
+WARNING 2025-12-13 14:24:53,922 log django.request Forbidden: /store/products/
+WARNING 2025-12-13 14:24:53,964 log django.request Bad Request: /store/products/
+WARNING 2025-12-13 14:33:37,824 log django.request Not Found: /store/products/999/

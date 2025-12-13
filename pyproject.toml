@@ -1,0 +1,14 @@
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "storefront.settings.dev"
+
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "--reuse-db"
+
+markers = [
+    "smoke: smoke tests",
+    "regression: regression tests",
+    "slow: tests with slow performance",
+    "webtest: tests requiring web interaction"
+]

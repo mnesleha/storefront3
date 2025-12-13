@@ -23,6 +23,7 @@ django-redis = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-mysql = "*"
+pytest-cov = "*"
 
 [dev-packages]
 autopep8 = "*"

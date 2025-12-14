@@ -1,0 +1,282 @@
+{% extends 'base.html' %} {% load static %} {% block title %}{{ product.title }}
+- Storefront{% endblock %} {% block content %}
+<div class="container">
+  <div style="margin-bottom: 2rem">
+    <a
+      href="{% url 'store:product-list' %}"
+      style="color: var(--primary-color); text-decoration: none"
+    >
+      ← Back to Products
+    </a>
+  </div>
+
+  <div
+    style="
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    "
+  >
+    <div>
+      {% if product.images.first %}
+      <img
+        src="{{ product.images.first.image.url }}"
+        alt="{{ product.title }}"
+        style="width: 100%; border-radius: 0.5rem; box-shadow: var(--shadow-lg)"
+      />
+      {% else %}
+      <div
+        style="
+          width: 100%;
+          height: 400px;
+          background-color: #f3f4f6;
+          border-radius: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <span style="color: #9ca3af; font-size: 1.5rem"
+          >No Image Available</span
+        >
+      </div>
+      {% endif %}
+
+      <!-- Additional Images -->
+      {% if product.images.count > 1 %}
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1rem;
+          margin-top: 1rem;
+        "
+      >
+        {% for image in product.images.all %}
+        <img
+          src="{{ image.image.url }}"
+          alt="{{ product.title }}"
+          style="
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            cursor: pointer;
+          "
+        />
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <div>
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem">
+        {{ product.title }}
+      </h1>
+
+      <div style="margin-bottom: 1.5rem">
+        <span class="badge badge-success">{{ product.collection.title }}</span>
+      </div>
+
+      <div
+        style="
+          font-size: 2rem;
+          color: var(--primary-color);
+          font-weight: bold;
+          margin-bottom: 1.5rem;
+        "
+      >
+        ${{ product.unit_price }}
+      </div>
+
+      <div
+        style="
+          margin-bottom: 1.5rem;
+          padding: 1rem;
+          background-color: var(--bg-light);
+          border-radius: 0.5rem;
+        "
+      >
+        {% if product.inventory > 10 %}
+        <span style="color: var(--success-color); font-weight: 600"
+          >✓ In Stock ({{ product.inventory }} available)</span
+        >
+        {% elif product.inventory > 0 %}
+        <span style="color: var(--warning-color); font-weight: 600"
+          >⚠ Only {{ product.inventory }} left in stock</span
+        >
+        {% else %}
+        <span style="color: var(--danger-color); font-weight: 600"
+          >✗ Out of Stock</span
+        >
+        {% endif %}
+      </div>
+
+      {% if product.description %}
+      <div style="margin-bottom: 2rem">
+        <h3 style="margin-bottom: 1rem">Description</h3>
+        <p style="line-height: 1.8; color: var(--text-light)">
+          {{ product.description }}
+        </p>
+      </div>
+      {% endif %} {% if product.inventory > 0 %}
+      <div style="margin-bottom: 2rem">
+        <div class="quantity-control" style="margin-bottom: 1rem">
+          <label style="margin-right: 1rem; font-weight: 600">Quantity:</label>
+          <button class="qty-minus" onclick="decrementQty()">-</button>
+          <input
+            type="number"
+            id="quantity"
+            value="1"
+            min="1"
+            max="{{ product.inventory }}"
+            readonly
+          />
+          <button class="qty-plus" onclick="incrementQty()">+</button>
+        </div>
+        <button
+          onclick="addProductToCart()"
+          class="btn btn-primary"
+          style="width: 100%; padding: 1rem; font-size: 1.125rem"
+        >
+          Add to Cart
+        </button>
+      </div>
+      {% endif %}
+
+      <div
+        style="border-top: 1px solid var(--border-color); padding-top: 1.5rem"
+      >
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            color: var(--text-light);
+          "
+        >
+          <div><strong>SKU:</strong> {{ product.id }}</div>
+          <div>
+            <strong>Last Updated:</strong> {{ product.last_update|date:"M d, Y"
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews Section -->
+  <div class="card" style="margin-bottom: 2rem">
+    <h2 style="margin-bottom: 1.5rem">Customer Reviews</h2>
+
+    {% if user.is_authenticated %}
+    <div
+      style="
+        background-color: var(--bg-light);
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 2rem;
+      "
+    >
+      <h3 style="margin-bottom: 1rem">Write a Review</h3>
+      <form id="review-form">
+        <div class="form-group">
+          <label for="review-description">Your Review</label>
+          <textarea
+            id="review-description"
+            class="form-control"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
+    </div>
+    {% else %}
+    <p><a href="{% url 'core:login' %}">Login</a> to write a review.</p>
+    {% endif %}
+
+    <div id="reviews-list">
+      {% for review in reviews %}
+      <div
+        style="border-bottom: 1px solid var(--border-color); padding: 1.5rem 0"
+      >
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+          "
+        >
+          <strong>{{ review.name }}</strong>
+          <span style="color: var(--text-light); font-size: 0.875rem"
+            >{{ review.date|date:"M d, Y" }}</span
+          >
+        </div>
+        <p style="color: var(--text-light)">{{ review.description }}</p>
+      </div>
+      {% empty %}
+      <p style="text-align: center; color: var(--text-light); padding: 2rem">
+        No reviews yet. Be the first to review this product!
+      </p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  function decrementQty() {
+      const input = document.getElementById('quantity');
+      if (input.value > 1) {
+          input.value = parseInt(input.value) - 1;
+      }
+  }
+
+  function incrementQty() {
+      const input = document.getElementById('quantity');
+      const max = parseInt(input.max);
+      if (input.value < max) {
+          input.value = parseInt(input.value) + 1;
+      }
+  }
+
+  function addProductToCart() {
+      const quantity = document.getElementById('quantity').value;
+      addToCart({{ product.id }}, parseInt(quantity));
+  }
+
+  // Handle review submission
+  document.getElementById('review-form')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const description = document.getElementById('review-description').value;
+
+      try {
+          const response = await fetch('/store/api/products/{{ product.id }}/reviews/', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRFToken': getCookie('csrftoken')
+              },
+              credentials: 'same-origin',
+              body: JSON.stringify({
+                  description: description,
+                  name: '{{ user.get_full_name|default:user.username }}'
+              })
+          });
+
+          if (response.ok) {
+              showNotification('Review submitted successfully!', 'success');
+              document.getElementById('review-description').value = '';
+              setTimeout(() => location.reload(), 1500);
+          } else {
+              showNotification('Error submitting review', 'error');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          showNotification('Error submitting review', 'error');
+      }
+  });
+</script>
+{% endblock %}

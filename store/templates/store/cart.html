@@ -1,0 +1,208 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Shopping Cart -
+Storefront{% endblock %} {% block content %}
+<div class="container">
+  <h1 style="margin-bottom: 2rem">Shopping Cart</h1>
+
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem">
+    <div>
+      <div id="cart-items">
+        <!-- Cart items will be loaded here -->
+      </div>
+    </div>
+
+    <div>
+      <div class="cart-summary">
+        <h3 style="margin-bottom: 1.5rem">Order Summary</h3>
+        <div class="cart-summary-item">
+          <span>Subtotal:</span>
+          <span id="subtotal">$0.00</span>
+        </div>
+        <div class="cart-summary-item">
+          <span>Tax (10%):</span>
+          <span id="tax">$0.00</span>
+        </div>
+        <div class="cart-summary-item cart-total">
+          <span>Total:</span>
+          <span id="total">$0.00</span>
+        </div>
+        <button
+          onclick="proceedToCheckout()"
+          class="btn btn-primary"
+          style="width: 100%; margin-top: 1rem"
+        >
+          Proceed to Checkout
+        </button>
+        <a
+          href="{% url 'store:product-list' %}"
+          class="btn btn-outline"
+          style="width: 100%; margin-top: 1rem; text-align: center"
+        >
+          Continue Shopping
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      loadCart();
+  });
+
+  async function loadCart() {
+      const cartId = localStorage.getItem('cartId');
+
+      if (!cartId) {
+          showEmptyCart();
+          return;
+      }
+
+      try {
+          const response = await fetch(`/store/api/carts/${cartId}/`);
+          if (!response.ok) {
+              showEmptyCart();
+              return;
+          }
+
+          const cart = await response.json();
+          displayCart(cart);
+      } catch (error) {
+          console.error('Error loading cart:', error);
+          showEmptyCart();
+      }
+  }
+
+  function showEmptyCart() {
+      document.getElementById('cart-items').innerHTML = `
+          <div class="card" style="text-align: center; padding: 3rem;">
+              <h3>Your cart is empty</h3>
+              <p style="margin: 1rem 0; color: var(--text-light);">Start shopping to add items to your cart!</p>
+              <a href="{% url 'store:product-list' %}" class="btn btn-primary">Browse Products</a>
+          </div>
+      `;
+  }
+
+  function displayCart(cart) {
+      if (!cart.items || cart.items.length === 0) {
+          showEmptyCart();
+          return;
+      }
+
+      let subtotal = 0;
+      let html = '';
+
+      cart.items.forEach(item => {
+          const itemTotal = parseFloat(item.product.unit_price) * item.quantity;
+          subtotal += itemTotal;
+
+          // Get image URL safely
+          let imageUrl = '/static/images/no-image.png';
+          if (item.product.images && item.product.images.length > 0 && item.product.images[0].image) {
+              imageUrl = item.product.images[0].image;
+          }
+
+          html += `
+              <div class="cart-item">
+                  <img src="${imageUrl}"
+                       alt="${item.product.title}"
+                       class="cart-item-image"
+                       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="no-image-placeholder" style="display:none; width:80px; height:80px;">
+                      No Image
+                  </div>
+                  <div class="cart-item-details">
+                      <div class="cart-item-title">${item.product.title}</div>
+                      <div class="cart-item-price">$${item.product.unit_price} each</div>
+                  </div>
+                  <div class="quantity-control">
+                      <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})"
+                              ${item.quantity <= 1 ? 'disabled' : ''}>-</button>
+                      <input type="number" value="${item.quantity}" min="1" readonly>
+                      <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                  </div>
+                  <div style="font-weight: bold; color: var(--primary-color);">
+                      $${itemTotal.toFixed(2)}
+                  </div>
+                  <button onclick="removeItem(${item.id})" class="btn btn-danger" style="padding: 0.5rem 1rem;">
+                      Remove
+                  </button>
+              </div>
+          `;
+      });
+
+      document.getElementById('cart-items').innerHTML = html;
+
+      const tax = subtotal * 0.10;
+      const total = subtotal + tax;
+
+      document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+      document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+  }
+
+  async function updateQuantity(itemId, newQuantity) {
+      if (newQuantity < 1) return;
+
+      const cartId = localStorage.getItem('cartId');
+
+      try {
+          const response = await fetch(`/store/api/carts/${cartId}/items/${itemId}/`, {
+              method: 'PATCH',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRFToken': getCookie('csrftoken')
+              },
+              credentials: 'same-origin',
+              body: JSON.stringify({ quantity: newQuantity })
+          });
+
+          if (response.ok) {
+              loadCart();
+              updateCartCount();
+          } else {
+              showNotification('Error updating quantity', 'error');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          showNotification('Error updating quantity', 'error');
+      }
+  }
+
+  async function removeItem(itemId) {
+      if (!confirm('Remove this item from cart?')) return;
+
+      const cartId = localStorage.getItem('cartId');
+
+      try {
+        const response = await fetch(`/store/api/carts/${cartId}/items/${itemId}/`, {
+              method: 'DELETE',
+              headers: {
+                  'X-CSRFToken': getCookie('csrftoken')
+              },
+              credentials: 'same-origin'
+          });
+
+          if (response.ok) {
+              loadCart();
+              updateCartCount();
+              showNotification('Item removed from cart', 'success');
+          } else {
+              showNotification('Error removing item', 'error');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          showNotification('Error removing item', 'error');
+      }
+  }
+
+  async function proceedToCheckout() {
+      {% if user.is_authenticated %}
+          window.location.href = '{% url "store:checkout" %}';
+      {% else %}
+          if (confirm('You need to login to checkout. Go to login page?')) {
+              window.location.href = '{% url "core:login" %}?next={% url "store:checkout" %}';
+          }
+      {% endif %}
+  }
+</script>
+{% endblock %}

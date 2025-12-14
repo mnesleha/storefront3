@@ -1,0 +1,147 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Order #{{ order.id
+}} - Storefront{% endblock %} {% block content %}
+<div class="container">
+  <div class="hero">
+    <h1>Order #{{ order.id }}</h1>
+    <p>Placed on {{ order.placed_at|date:"F d, Y" }}</p>
+  </div>
+
+  <div class="card">
+    <h2>Order Details</h2>
+    <div style="display: grid; gap: 1rem; margin-top: 1rem">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          padding: 0.5rem 0;
+          border-bottom: 1px solid var(--border-color);
+        "
+      >
+        <span style="font-weight: 600">Status:</span>
+        <span
+          class="badge"
+          style="padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.875rem;
+                     {% if order.payment_status == 'P' %}background-color: #fef3c7; color: #92400e;{% elif order.payment_status == 'C' %}background-color: #d1fae5; color: #065f46;{% else %}background-color: #fee2e2; color: #991b1b;{% endif %}"
+        >
+          {% if order.payment_status == 'P' %} Pending {% elif
+          order.payment_status == 'C' %} Complete {% else %} Failed {% endif %}
+        </span>
+      </div>
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          padding: 0.5rem 0;
+          border-bottom: 1px solid var(--border-color);
+        "
+        <div
+        class="d-flex justify-between py-3 border-bottom"
+      >
+        <span class="font-semibold">Order Date:</span>
+        <span>{{ order.placed_at|date:"F d, Y g:i A" }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Order Items</h2>
+    <div class="mt-2">
+      <table class="w-100" style="border-collapse: collapse">
+        <thead>
+          <tr class="border-bottom" style="border-bottom-width: 2px">
+            <th class="text-left p-3">Product</th>
+            <th class="text-center p-3">Quantity</th>
+            <th style="text-align: right" class="p-3">Unit Price</th>
+            <th style="text-align: right" class="p-3">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in order.items.all %}
+          <tr class="border-bottom">
+            <td class="p-4">
+              <div class="d-flex align-center gap-1">
+                {% if item.product.images.first %} <img src="{{
+                item.product.images.first.image.url }}" alt="{{
+                item.product.title }}" style="width: 60px; height: 60px;
+                object-fit: cover; border-radius: 4px;" object-fit: cover;
+                border-radius: 4px; " /> {% endif %}
+                <div>
+                  <a
+                    href="{% url 'store:product-detail' item.product.id %}"
+                    style="
+                      color: var(--primary-color);
+                      text-decoration: none;
+                      font-weight: 500;
+                    "
+                  >
+                    {{ item.product.title }}
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td style="text-align: center; padding: 1rem">
+              {{ item.quantity }}
+            </td>
+            <td style="text-align: right; padding: 1rem">
+              ${{ item.unit_price }}
+            </td>
+            <td style="text-align: right; padding: 1rem; font-weight: 600">
+              ${% widthratio item.quantity 1 item.unit_price %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr style="border-top: 2px solid var(--border-color)">
+            <td
+              colspan="3"
+              style="
+                text-align: right;
+                padding: 1rem;
+                font-weight: 700;
+                font-size: 1.125rem;
+              "
+            >
+              Total:
+            </td>
+            <td
+              style="
+                text-align: right;
+                padding: 1rem;
+                font-weight: 700;
+                font-size: 1.125rem;
+                color: var(--primary-color);
+              "
+            >
+              <span id="order-total">$0.00</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; display: flex; gap: 1rem">
+    <a href="{% url 'store:order-list' %}" class="btn btn-outline"
+      >Back to Orders</a
+    >
+    <a href="{% url 'store:product-list' %}" class="btn btn-primary"
+      >Continue Shopping</a
+    >
+  </div>
+</div>
+
+<script>
+  // Calculate and display total
+  document.addEventListener('DOMContentLoaded', function() {
+      const items = {{ order.items.all|length }};
+      let total = 0;
+
+      {% for item in order.items.all %}
+          total += {{ item.quantity }} * {{ item.unit_price }};
+      {% endfor %}
+
+      document.getElementById('order-total').textContent = '$' + total.toFixed(2);
+  });
+</script>
+{% endblock %}

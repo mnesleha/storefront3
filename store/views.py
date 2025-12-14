@@ -1,7 +1,8 @@
 from store.permissions import FullDjangoModelPermissions, IsAdminOrReadOnly, ViewCustomerHistoryPermission
 from store.pagination import DefaultPagination
 from django.db.models.aggregates import Count
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
+from django.views.generic import ListView, DetailView, TemplateView
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import action, permission_classes
 from rest_framework.filters import SearchFilter, OrderingFilter
@@ -64,6 +65,7 @@ class CartViewSet(CreateModelMixin,
                   GenericViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
+    permission_classes = [AllowAny]
 
     def get_queryset(self):
         # Only prefetch items when retrieving, not when creating
@@ -74,6 +76,7 @@ class CartViewSet(CreateModelMixin,
 
 class CartItemViewSet(ModelViewSet):
     http_method_names = ['get', 'post', 'patch', 'delete']
+    permission_classes = [AllowAny]
 
     def get_serializer_class(self):
         if self.request.method == 'POST':
@@ -116,6 +119,7 @@ class CustomerViewSet(ModelViewSet):
 
 class OrderViewSet(ModelViewSet):
     http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
+    permission_classes = [IsAuthenticated]
 
     def get_permissions(self):
         if self.request.method in ['PATCH', 'DELETE']:
@@ -157,3 +161,86 @@ class ProductImageViewSet(ModelViewSet):
 
     def get_queryset(self):
         return ProductImage.objects.filter(product_id=self.kwargs['product_pk'])
+
+
+# Template-based views for frontend
+class ProductListView(ListView):
+    model = Product
+    template_name = 'store/product_list.html'
+    context_object_name = 'products'
+    paginate_by = 12
+
+    def get_queryset(self):
+        queryset = Product.objects.prefetch_related(
+            'images', 'collection').all()
+
+        # Apply filters
+        collection_id = self.request.GET.get('collection_id')
+        if collection_id:
+            queryset = queryset.filter(collection_id=collection_id)
+
+        # Apply search
+        search = self.request.GET.get('search')
+        if search:
+            queryset = queryset.filter(title__icontains=search)
+
+        # Apply ordering
+        ordering = self.request.GET.get('ordering', 'title')
+        if ordering:  # Only apply ordering if it's not empty
+            queryset = queryset.order_by(ordering)
+        else:
+            queryset = queryset.order_by('title')  # Default ordering
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['collections'] = Collection.objects.all()
+        return context
+
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'store/product_detail.html'
+    context_object_name = 'product'
+
+    def get_queryset(self):
+        return Product.objects.prefetch_related('images', 'reviews')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['reviews'] = self.object.reviews.all()[:10]
+        return context
+
+
+class CollectionListView(ListView):
+    model = Collection
+    template_name = 'store/collection_list.html'
+    context_object_name = 'collections'
+    paginate_by = 12
+
+    def get_queryset(self):
+        return Collection.objects.annotate(products_count=Count('products')).all()
+
+
+class CartView(TemplateView):
+    template_name = 'store/cart.html'
+
+
+class CheckoutView(TemplateView):
+    template_name = 'store/checkout.html'
+
+
+class OrderListView(TemplateView):
+    template_name = 'store/order_list.html'
+
+
+class OrderDetailView(DetailView):
+    model = Order
+    template_name = 'store/order_detail.html'
+    context_object_name = 'order'
+
+    def get_queryset(self):
+        return Order.objects.prefetch_related('items__product__images').filter(
+            customer__user=self.request.user
+        )

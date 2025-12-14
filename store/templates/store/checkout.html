@@ -1,0 +1,173 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Checkout -
+Storefront{% endblock %} {% block content %}
+<div class="container">
+  <h1 style="margin-bottom: 2rem">Checkout</h1>
+
+  <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem">
+    <div>
+      <div class="card" style="margin-bottom: 2rem">
+        <h2 style="margin-bottom: 1.5rem">Order Summary</h2>
+        <div id="checkout-items"></div>
+      </div>
+
+      {% if not user.customer %}
+      <div class="alert alert-warning">
+        Please complete your profile to place an order.
+      </div>
+      {% endif %}
+    </div>
+
+    <div>
+      <div class="cart-summary">
+        <h3 style="margin-bottom: 1.5rem">Payment Summary</h3>
+        <div class="cart-summary-item">
+          <span>Subtotal:</span>
+          <span id="checkout-subtotal">$0.00</span>
+        </div>
+        <div class="cart-summary-item">
+          <span>Tax (10%):</span>
+          <span id="checkout-tax">$0.00</span>
+        </div>
+        <div class="cart-summary-item cart-total">
+          <span>Total:</span>
+          <span id="checkout-total">$0.00</span>
+        </div>
+
+        <button
+          onclick="placeOrder()"
+          class="btn btn-primary"
+          style="width: 100%; margin-top: 1rem"
+          {%
+          if
+          not
+          user.customer
+          %}disabled{%
+          endif
+          %}
+        >
+          Place Order
+        </button>
+
+        <a
+          href="{% url 'store:cart-detail' %}"
+          class="btn btn-outline"
+          style="width: 100%; margin-top: 1rem; text-align: center"
+        >
+          Back to Cart
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    loadCheckoutCart();
+  });
+
+  async function loadCheckoutCart() {
+    const cartId = localStorage.getItem("cartId");
+
+    if (!cartId) {
+      window.location.href = '{% url "store:cart-detail" %}';
+      return;
+    }
+
+    try {
+      const response = await fetch(`/store/api/carts/${cartId}/`);
+      if (!response.ok) {
+        window.location.href = '{% url "store:cart-detail" %}';
+        return;
+      }
+
+      const cart = await response.json();
+
+      if (!cart.items || cart.items.length === 0) {
+        window.location.href = '{% url "store:cart-detail" %}';
+        return;
+      }
+
+      displayCheckoutItems(cart);
+    } catch (error) {
+      console.error("Error loading cart:", error);
+      window.location.href = '{% url "store:cart-detail" %}';
+    }
+  }
+
+  function displayCheckoutItems(cart) {
+    let subtotal = 0;
+    let html = '<div style="max-height: 400px; overflow-y: auto;">';
+
+    cart.items.forEach((item) => {
+      const itemTotal = parseFloat(item.product.unit_price) * item.quantity;
+      subtotal += itemTotal;
+
+      html += `
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid var(--border-color);">
+                <div style="flex: 1;">
+                    <div style="font-weight: 600;">${item.product.title}</div>
+                    <div style="color: var(--text-light); font-size: 0.875rem;">
+                        Quantity: ${item.quantity} × $${item.product.unit_price}
+                    </div>
+                </div>
+                <div style="font-weight: bold; color: var(--primary-color);">
+                    $${itemTotal.toFixed(2)}
+                </div>
+            </div>
+        `;
+    });
+
+    html += "</div>";
+    document.getElementById("checkout-items").innerHTML = html;
+
+    const tax = subtotal * 0.1;
+    const total = subtotal + tax;
+
+    document.getElementById(
+      "checkout-subtotal"
+    ).textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById("checkout-tax").textContent = `$${tax.toFixed(2)}`;
+    document.getElementById("checkout-total").textContent = `$${total.toFixed(
+      2
+    )}`;
+  }
+
+  async function placeOrder() {
+    const cartId = localStorage.getItem("cartId");
+
+    if (!cartId) {
+      showNotification("Cart not found", "error");
+      return;
+    }
+
+    try {
+      const response = await fetch("/store/api/orders/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCookie("csrftoken"),
+        },
+        credentials: "same-origin",
+        body: JSON.stringify({
+          cart_id: cartId,
+        }),
+      });
+
+      if (response.ok) {
+        const order = await response.json();
+        localStorage.removeItem("cartId");
+        showNotification("Order placed successfully!", "success");
+        setTimeout(() => {
+          window.location.href = `/store/orders/${order.id}/`;
+        }, 1500);
+      } else {
+        const error = await response.json();
+        showNotification(error.detail || "Error placing order", "error");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      showNotification("Error placing order", "error");
+    }
+  }
+</script>
+{% endblock %}

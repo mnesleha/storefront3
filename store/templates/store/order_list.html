@@ -1,0 +1,133 @@
+{% extends 'base.html' %} {% load static %} {% block title %}My Orders -
+Storefront{% endblock %} {% block content %}
+<div class="container">
+  <h1 class="mb-4">My Orders</h1>
+
+  <div id="orders-list">
+    <!-- Orders will be loaded here -->
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    loadOrders();
+  });
+
+  async function loadOrders() {
+    try {
+      const response = await fetch("/store/api/orders/", {
+        headers: {
+          "X-CSRFToken": getCookie("csrftoken"),
+        },
+        credentials: "same-origin",
+      });
+
+      if (!response.ok) {
+        showEmptyOrders();
+        return;
+      }
+
+      const orders = await response.json();
+      displayOrders(orders);
+    } catch (error) {
+      console.error("Error loading orders:", error);
+      showEmptyOrders();
+    }
+  }
+
+  function showEmptyOrders() {
+    document.getElementById("orders-list").innerHTML = `
+        <div class="card empty-state">
+            <h3>No Orders Yet</h3>
+            <p class="mb-2 text-light">Start shopping to place your first order!</p>
+            <a href="{% url 'store:product-list' %}" class="btn btn-primary">Browse Products</a>
+        </div>
+    `;
+  }
+
+  function displayOrders(orders) {
+    if (!orders || orders.length === 0) {
+      showEmptyOrders();
+      return;
+    }
+
+    let html = "";
+
+    orders.forEach((order) => {
+      const total = order.items.reduce(
+        (sum, item) => sum + parseFloat(item.unit_price) * item.quantity,
+        0
+      );
+
+      const statusClass =
+        order.payment_status === "C"
+          ? "success"
+          : order.payment_status === "P"
+          ? "warning"
+          : "danger";
+      const statusText =
+        order.payment_status === "C"
+          ? "Complete"
+          : order.payment_status === "P"
+          ? "Pending"
+          : "Failed";
+
+      html += `
+            <div class="card order-card">
+                <div class="order-header">
+                    <div>
+                        <h3 class="mb-1">Order #${order.id}</h3>
+                        <p class="text-light text-sm">
+                            Placed on ${new Date(
+                              order.placed_at
+                            ).toLocaleDateString()}
+                        </p>
+                    </div>
+                    <span class="badge badge-${statusClass}">${statusText}</span>
+                </div>
+
+                <div class="border-top pt-3">\n                    ${order.items
+                  .map(
+                    (item) => `
+                        <div class="d-flex justify-between py-3 border-bottom">
+                            <div>
+                                <div class="font-semibold">${
+                                  item.product?.title || "Product"
+                                }</div>
+                                <div class="text-light text-sm">
+                                    Quantity: ${item.quantity} × $${
+                      item.unit_price
+                    }
+                                </div>
+                            </div>
+                            <div class="font-bold">
+                                $${(
+                                  item.quantity * parseFloat(item.unit_price)
+                                ).toFixed(2)}
+                            </div>
+                        </div>
+                    `
+                  )
+                  .join("")}
+                </div>
+
+                <div class="d-flex justify-between align-center mt-3 pt-3" style="border-top: 2px solid var(--border-color);">
+                    <strong class="text-lg">Total:</strong>
+                    <strong class="text-2xl text-primary">$${total.toFixed(
+                      2
+                    )}</strong>
+                </div>
+
+                <div style="margin-top: 1rem;">
+                    <a href="/store/orders/${
+                      order.id
+                    }/" class="btn btn-outline">View Details</a>
+                </div>
+            </div>
+        `;
+    });
+
+    document.getElementById("orders-list").innerHTML = html;
+  }
+</script>
+{% endblock %}

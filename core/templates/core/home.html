@@ -1,0 +1,121 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Welcome to
+Storefront{% endblock %} {% block content %}
+<div class="hero">
+  <div class="container">
+    <h1>Welcome to Storefront</h1>
+    <p>Your one-stop shop for amazing products</p>
+    <div class="mt-4">
+      <a href="{% url 'store:product-list' %}" class="btn btn-primary mr-2"
+        >Shop Now</a
+      >
+      <a
+        href="{% url 'store:collection-list' %}"
+        class="btn btn-outline"
+        style="color: white; border-color: white"
+        >Browse Collections</a
+      >
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Featured Products Section -->
+  <section class="mb-6">
+    <h2 class="text-center mb-4">Featured Products</h2>
+    <div class="card-grid" id="featured-products">
+      <!-- Products will be loaded here -->
+    </div>
+    <div class="text-center mt-4">
+      <a href="{% url 'store:product-list' %}" class="btn btn-primary"
+        >View All Products</a
+      >
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="mb-6">
+    <h2 class="text-center mb-5">Why Choose Us</h2>
+    <div class="grid-auto gap-1">
+      <div class="card text-center">
+        <div class="feature-icon">🚚</div>
+        <h3 class="mb-2">Fast Shipping</h3>
+        <p class="text-light">Quick and reliable delivery to your doorstep</p>
+      </div>
+      <div class="card text-center">
+        <div class="feature-icon">💎</div>
+        <h3 class="mb-2">Quality Products</h3>
+        <p class="text-light">Only the best products make it to our store</p>
+      </div>
+      <div class="card text-center">
+        <div class="feature-icon">🔒</div>
+        <h3 class="mb-2">Secure Payments</h3>
+        <p class="text-light">Your transactions are safe with us</p>
+      </div>
+      <div class="card text-center">
+        <div class="feature-icon">💬</div>
+        <h3 class="mb-2">24/7 Support</h3>
+        <p class="text-light">We're here to help whenever you need us</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Load featured products
+  document.addEventListener("DOMContentLoaded", async function () {
+    try {
+      const response = await fetch(
+        "/store/api/products/?ordering=-last_update&limit=4"
+      );
+      if (response.ok) {
+        const data = await response.json();
+        const products = data.results || data;
+        displayFeaturedProducts(products.slice(0, 4));
+      }
+    } catch (error) {
+      console.error("Error loading featured products:", error);
+    }
+  });
+
+  function displayFeaturedProducts(products) {
+    if (products.length === 0) return;
+
+    const html = products
+      .map(
+        (product) => `
+        <div class="product-card">
+            ${
+              product.images && product.images.length > 0
+                ? `<img src="${product.images[0].image}" alt="${product.title}" class="product-image">`
+                : `<div class="product-image no-image-placeholder">
+                     <span class="text-muted">No Image</span>
+                   </div>`
+            }
+            <div class="product-body">
+                <h3 class="product-title">${product.title}</h3>
+                <p class="product-description">${
+                  product.description
+                    ? product.description.substring(0, 60) + "..."
+                    : ""
+                }</p>
+                <div class="product-price">$${product.unit_price}</div>
+                <div class="product-footer">
+                    <a href="/store/products/${
+                      product.id
+                    }/" class="btn btn-outline flex-1 text-center">View</a>
+                    ${
+                      product.inventory > 0
+                        ? `<button onclick="addToCart(${product.id})" class="btn btn-primary">Add to Cart</button>`
+                        : '<button class="btn btn-primary" disabled>Out of Stock</button>'
+                    }
+                </div>
+            </div>
+        </div>
+    `
+      )
+      .join("");
+
+    document.getElementById("featured-products").innerHTML = html;
+  }
+</script>
+{% endblock %}

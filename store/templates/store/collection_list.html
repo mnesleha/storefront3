@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Collections -
+Storefront{% endblock %} {% block content %}
+<div class="container">
+  <div class="hero">
+    <h1>Product Collections</h1>
+    <p>Browse our curated collections</p>
+  </div>
+
+  <div class="card-grid">
+    {% for collection in collections %}
+    <div class="card">
+      <h3 class="mb-2 text-primary">{{ collection.title }}</h3>
+      <p class="text-light mb-2">
+        {{ collection.products_count }} product{{
+        collection.products_count|pluralize }}
+      </p>
+      {% if collection.featured_product %}
+      <div class="mb-2 p-3 bg-light rounded">
+        <strong>Featured:</strong> {{ collection.featured_product.title }}
+      </div>
+      {% endif %}
+      <a
+        href="{% url 'store:product-list' %}?collection_id={{ collection.id }}"
+        class="btn btn-primary w-100 text-center"
+      >
+        View Products
+      </a>
+    </div>
+    {% empty %}
+    <div class="card grid-col-full empty-state">
+      <h3>No collections available</h3>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% if is_paginated %}
+  <div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page=1">&laquo; First</a>
+    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    <span class="active"
+      >Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span
+    >
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

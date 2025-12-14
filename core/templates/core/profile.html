@@ -1,0 +1,127 @@
+{% extends 'base.html' %} {% load static %} {% block title %}My Profile -
+Storefront{% endblock %} {% block content %}
+<div class="container">
+  <h1 class="mb-4">My Profile</h1>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem">
+    <div class="card">
+      <h2 class="mb-3">Account Information</h2>
+
+      <div class="mb-2"><strong>Username:</strong> {{ user.username }}</div>
+      <div class="mb-2"><strong>Email:</strong> {{ user.email }}</div>
+      <div class="mb-2">
+        <strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}
+      </div>
+      <div class="mb-2">
+        <strong>Member since:</strong> {{ user.date_joined|date:"M d, Y" }}
+      </div>
+    </div>
+
+    {% if user.customer %}
+    <div class="card">
+      <h2 class="mb-3">Customer Details</h2>
+
+      <div class="mb-2">
+        <strong>Phone:</strong> {{ user.customer.phone|default:"Not provided" }}
+      </div>
+      <div class="mb-2">
+        <strong>Birth Date:</strong>
+        {% if user.customer.birth_date %} {{ user.customer.birth_date|date:"M d,
+        Y" }} {% else %} Not provided {% endif %}
+      </div>
+      <div class="mb-2">
+        <strong>Membership:</strong>
+        <span
+          class="badge badge-{% if user.customer.membership == 'G' %}success{% elif user.customer.membership == 'S' %}warning{% else %}info{% endif %}"
+        >
+          {{ user.customer.get_membership_display }}
+        </span>
+      </div>
+
+      <a href="#" onclick="editProfile()" class="btn btn-primary mt-2"
+        >Edit Profile</a
+      >
+    </div>
+    {% else %}
+    <div class="card">
+      <h2 class="mb-3">Complete Your Profile</h2>
+      <p class="text-light mb-3">
+        Please complete your customer profile to place orders.
+      </p>
+
+      <form id="profile-form">
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <label for="birth_date">Birth Date</label>
+          <input type="date" id="birth_date" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Profile</button>
+      </form>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="card mt-4">
+    <h2 class="mb-3">Quick Actions</h2>
+    <div class="d-flex gap-1 flex-wrap">
+      <a href="{% url 'store:order-list' %}" class="btn btn-primary"
+        >My Orders</a
+      >
+      <a href="{% url 'store:cart-detail' %}" class="btn btn-outline"
+        >View Cart</a
+      >
+      <a href="{% url 'store:product-list' %}" class="btn btn-outline"
+        >Browse Products</a
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  {% if not user.customer %}
+  document.getElementById('profile-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const phone = document.getElementById('phone').value;
+      const birthDate = document.getElementById('birth_date').value;
+
+      try {
+          const response = await fetch('/store/customers/', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRFToken': getCookie('csrftoken'),
+                  'Authorization': 'Bearer ' + localStorage.getItem('access_token')
+              },
+              body: JSON.stringify({
+                  phone: phone,
+                  birth_date: birthDate || null,
+                  user_id: {{ user.id }}
+              })
+          });
+
+          if (response.ok) {
+              showNotification('Profile created successfully!', 'success');
+              setTimeout(() => location.reload(), 1500);
+          } else {
+              const error = await response.json();
+              showNotification(error.detail || 'Error creating profile', 'error');
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          showNotification('Error creating profile', 'error');
+      }
+  });
+  {% endif %}
+
+  function editProfile() {
+      // This could open a modal or redirect to an edit page
+      alert('Profile editing functionality would be implemented here');
+  }
+</script>
+{% endblock %}

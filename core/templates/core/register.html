@@ -1,0 +1,145 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Register -
+Storefront{% endblock %} {% block content %}
+<div class="container" style="max-width: 500px; margin-top: 4rem">
+  <div class="card">
+    <h1 style="text-align: center; margin-bottom: 2rem">Create Account</h1>
+
+    <div
+      id="register-error"
+      class="alert alert-error"
+      style="display: none"
+    ></div>
+    <div
+      id="register-success"
+      class="alert alert-success"
+      style="display: none"
+    ></div>
+
+    <form id="register-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" required />
+        <small style="color: var(--text-light)"
+          >Password must be at least 8 characters</small
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="re_password">Confirm Password</label>
+        <input type="password" id="re_password" class="form-control" required />
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%">
+        Create Account
+      </button>
+    </form>
+
+    <div
+      style="
+        text-align: center;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border-color);
+      "
+    >
+      <p>
+        Already have an account?
+        <a href="{% url 'core:login' %}" style="color: var(--primary-color)"
+          >Login here</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document
+    .getElementById("register-form")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const errorDiv = document.getElementById("register-error");
+      const successDiv = document.getElementById("register-success");
+      errorDiv.style.display = "none";
+      successDiv.style.display = "none";
+
+      const password = document.getElementById("password").value;
+      const rePassword = document.getElementById("re_password").value;
+
+      if (password !== rePassword) {
+        errorDiv.textContent = "Passwords do not match!";
+        errorDiv.style.display = "block";
+        return;
+      }
+
+      const formData = {
+        username: document.getElementById("username").value,
+        email: document.getElementById("email").value,
+        first_name: document.getElementById("first_name").value,
+        last_name: document.getElementById("last_name").value,
+        password: password,
+        re_password: rePassword,
+      };
+
+      try {
+        const response = await fetch("/auth/users/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok || response.status === 201) {
+          successDiv.textContent =
+            "Account created successfully! Redirecting to login...";
+          successDiv.style.display = "block";
+
+          setTimeout(() => {
+            window.location.href = '{% url "core:login" %}';
+          }, 2000);
+        } else {
+          const error = await response.json();
+          let errorMessage = "Registration failed. ";
+
+          if (error.username) {
+            errorMessage += "Username: " + error.username.join(" ") + " ";
+          }
+          if (error.email) {
+            errorMessage += "Email: " + error.email.join(" ") + " ";
+          }
+          if (error.password) {
+            errorMessage += "Password: " + error.password.join(" ");
+          }
+
+          errorDiv.textContent = errorMessage;
+          errorDiv.style.display = "block";
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        errorDiv.textContent = "An error occurred. Please try again.";
+        errorDiv.style.display = "block";
+      }
+    });
+</script>
+{% endblock %}

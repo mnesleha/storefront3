@@ -468,3 +468,218 @@ WARNING 2025-12-13 14:24:53,877 log django.request Unauthorized: /store/products
 WARNING 2025-12-13 14:24:53,922 log django.request Forbidden: /store/products/
 WARNING 2025-12-13 14:24:53,964 log django.request Bad Request: /store/products/
 WARNING 2025-12-13 14:33:37,824 log django.request Not Found: /store/products/999/
+INFO 2025-12-13 15:51:34,147 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py changed, reloading.
+INFO 2025-12-13 15:51:37,578 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 15:51:38,451 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 15:51:43,911 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py changed, reloading.
+INFO 2025-12-13 15:51:45,778 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 15:51:46,335 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 15:51:49,204 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py changed, reloading.
+INFO 2025-12-13 15:51:51,095 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 15:51:51,657 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 15:51:59,194 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\core\urls.py changed, reloading.
+INFO 2025-12-13 15:52:00,999 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 15:52:01,572 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 15:52:11,328 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\urls.py changed, reloading.
+INFO 2025-12-13 15:52:13,716 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 15:52:14,767 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 15:52:35,384 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\storefront\urls.py changed, reloading.
+INFO 2025-12-13 15:52:37,612 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 15:52:38,129 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 15:52:42,808 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\storefront\settings\common.py changed, reloading.
+INFO 2025-12-13 15:52:44,864 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 15:52:45,605 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 15:52:54,079 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\storefront\settings\common.py changed, reloading.
+INFO 2025-12-13 15:52:56,285 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 15:52:56,828 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-13 15:54:59,830 log django.request Not Found: /favicon.ico
+INFO 2025-12-13 16:05:03,110 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:05:03,583 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 16:06:23,473 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\urls.py changed, reloading.
+INFO 2025-12-13 16:06:24,905 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:06:25,256 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-13 16:07:29,212 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+ERROR 2025-12-13 16:09:20,292 log django.request Internal Server Error: /store/products/
+Traceback (most recent call last):
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\views\generic\list.py", line 158, in get
+    self.object_list = self.get_queryset()
+                       ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py", line 185, in get_queryset
+    queryset = queryset.order_by(ordering)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\db\models\query.py", line 1772, in order_by
+    obj.query.add_ordering(*field_names)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\db\models\sql\query.py", line 2333, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword '' into field. Choices are: cartitem, collection, collection_id, description, id, images, inventory, last_update, orderitems, promotions, reviews, slug, title, unit_price
+WARNING 2025-12-13 16:10:51,935 log django.request Not Found: /store/api/carts/dd9932d6-2f1b-4634-bbaf-d6975d4f2bcd/items/undefined/
+WARNING 2025-12-13 16:10:52,965 log django.request Not Found: /store/api/carts/dd9932d6-2f1b-4634-bbaf-d6975d4f2bcd/items/undefined/
+WARNING 2025-12-13 16:10:53,991 log django.request Not Found: /store/api/carts/dd9932d6-2f1b-4634-bbaf-d6975d4f2bcd/items/undefined/
+INFO 2025-12-13 16:11:46,995 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py changed, reloading.
+INFO 2025-12-13 16:11:48,452 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:11:48,806 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 16:14:23,954 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\core\views.py changed, reloading.
+INFO 2025-12-13 16:14:25,321 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:14:25,667 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 16:14:36,709 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\core\urls.py changed, reloading.
+INFO 2025-12-13 16:14:38,134 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:14:38,481 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 16:15:42,159 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\urls.py changed, reloading.
+INFO 2025-12-13 16:15:43,407 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:15:43,781 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 16:15:52,374 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\storefront\urls.py changed, reloading.
+INFO 2025-12-13 16:15:53,619 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:15:54,000 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 16:16:14,789 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\core\urls.py changed, reloading.
+INFO 2025-12-13 16:16:16,157 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:16:17,060 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+ERROR 2025-12-13 16:16:20,284 log django.request Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\core\handlers\base.py", line 221, in _get_response
+    response = response.render()
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\base.py", line 174, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\test\utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\loader_tags.py", line 160, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\test\utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\base.py", line 1091, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\base.py", line 1052, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\template\defaulttags.py", line 511, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\urls\resolvers.py", line 842, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+INFO 2025-12-13 16:17:38,230 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\core\views.py changed, reloading.
+INFO 2025-12-13 16:17:39,521 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:17:39,864 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-13 16:18:28,836 log django.request Unauthorized: /store/api/orders/
+WARNING 2025-12-13 16:18:37,205 log django.request Not Found: /store/carts/dd9932d6-2f1b-4634-bbaf-d6975d4f2bcd/
+WARNING 2025-12-13 16:19:36,107 log django.request Not Found: /store/carts/dd9932d6-2f1b-4634-bbaf-d6975d4f2bcd/
+WARNING 2025-12-13 16:19:57,931 log django.request Unauthorized: /store/api/orders/
+WARNING 2025-12-13 16:21:33,216 log django.request Unauthorized: /store/api/orders/
+WARNING 2025-12-13 16:22:45,757 log django.request Not Found: /store/carts/dd9932d6-2f1b-4634-bbaf-d6975d4f2bcd/
+INFO 2025-12-13 16:24:03,695 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py changed, reloading.
+INFO 2025-12-13 16:24:05,049 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:24:05,420 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-13 16:26:08,620 log django.request Not Found: /store/carts/dd9932d6-2f1b-4634-bbaf-d6975d4f2bcd/
+WARNING 2025-12-13 16:26:25,894 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:27:34,528 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:27:34,716 log django.request Not Found: /store/carts/dd9932d6-2f1b-4634-bbaf-d6975d4f2bcd/
+WARNING 2025-12-13 16:31:18,163 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:31:49,546 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:31:56,278 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:32:27,095 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:33:02,825 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:33:21,429 log django.request Unauthorized: /store/api/orders/
+WARNING 2025-12-13 16:33:40,863 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:34:05,863 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2025-12-13 16:34:35,022 log django.request Internal Server Error: /store/products/
+Traceback (most recent call last):
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\views\generic\base.py", line 106, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\views\generic\base.py", line 145, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\views\generic\list.py", line 158, in get
+    self.object_list = self.get_queryset()
+                       ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py", line 188, in get_queryset
+    queryset = queryset.order_by(ordering)
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\db\models\query.py", line 1772, in order_by
+    obj.query.add_ordering(*field_names)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\db\models\sql\query.py", line 2333, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\marek\.virtualenvs\storefront3-J9aQINqB\Lib\site-packages\django\db\models\sql\query.py", line 1832, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword '' into field. Choices are: cartitem, collection, collection_id, description, id, images, inventory, last_update, orderitems, promotions, reviews, slug, title, unit_price
+WARNING 2025-12-13 16:34:37,287 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-13 16:36:34,839 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py changed, reloading.
+INFO 2025-12-13 16:36:36,350 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:36:36,791 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-13 16:36:53,903 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:37:03,410 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:37:21,476 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:37:34,111 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:38:17,968 log django.request Unauthorized: /store/api/orders/
+INFO 2025-12-13 16:40:26,744 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py changed, reloading.
+INFO 2025-12-13 16:40:28,126 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:40:28,500 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-13 16:41:31,032 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:41:42,992 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:41:56,761 log django.request Unauthorized: /store/api/orders/
+INFO 2025-12-13 16:42:58,996 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\storefront\settings\common.py changed, reloading.
+INFO 2025-12-13 16:43:00,426 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:43:00,738 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-13 16:43:21,212 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:43:30,515 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:43:40,050 log django.request Not Found: /store/orders/1/
+WARNING 2025-12-13 16:43:42,283 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+INFO 2025-12-13 16:45:42,214 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\core\views.py changed, reloading.
+INFO 2025-12-13 16:45:43,731 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:45:44,184 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 16:45:51,771 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\urls.py changed, reloading.
+INFO 2025-12-13 16:45:53,175 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:45:53,608 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+INFO 2025-12-13 16:46:03,374 autoreload django.utils.autoreload C:\Users\marek\Documents\!work\_python-projekty\Ultimate Django Series\storefront3\store\views.py changed, reloading.
+INFO 2025-12-13 16:46:05,436 autoreload django.utils.autoreload Watching for file changes with StatReloader
+WARNING 2025-12-13 16:46:05,961 profiler silk.profiling.profiler Cannot execute silk_profile as silk is not installed correctly.
+WARNING 2025-12-13 16:47:13,243 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:47:38,291 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:47:45,482 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:48:00,660 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:48:22,712 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 16:49:41,373 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 17:24:27,383 log django.request Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-13 18:02:22,117 log django.request Not Found: /favicon.ico
